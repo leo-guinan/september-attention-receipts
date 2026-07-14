@@ -1,0 +1,10 @@
+.DS_Store
+.env
+.env.*
+*.private.*
+private/
+raw-private/
+keys/
+wallets/
+*.key
+*.pem

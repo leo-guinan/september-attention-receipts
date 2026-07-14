@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QUAI Tweet Bounty v1",
+  "type": "object",
+  "required": ["schema_version", "tweet_id", "amount_quai", "status"],
+  "properties": {
+    "schema_version": {"const": "quai-tweet-bounty-v1"},
+    "created_at": {"type": "string"},
+    "tweet_id": {"type": "string", "pattern": "^[0-9]{5,25}$"},
+    "tweet_url": {"type": "string"},
+    "amount_quai": {"const": 1},
+    "status": {"enum": ["queued_manual_payment", "paid", "rejected", "duplicate"]},
+    "receipt_id": {"type": "string"},
+    "operator_label": {"type": "string"},
+    "payout_address": {"type": ["string", "null"]},
+    "payment_tx": {"type": ["string", "null"]},
+    "note": {"type": "string"}
+  },
+  "additionalProperties": true
+}

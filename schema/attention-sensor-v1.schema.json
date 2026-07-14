@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Attention Sensor Receipt v1",
+  "type": "object",
+  "required": ["schema_version", "captured_at", "page_url", "target"],
+  "properties": {
+    "schema_version": {"const": "attention-sensor-v1"},
+    "captured_at": {"type": "string"},
+    "page_url": {"type": "string"},
+    "page_title": {"type": "string"},
+    "tweet_ids": {"type": "array", "items": {"type": "string", "pattern": "^[0-9]{5,25}$"}},
+    "quai_payout_address": {"type": ["string", "null"]},
+    "operator_label": {"type": "string"},
+    "target": {"type": "object"},
+    "visible_stats": {"type": "object"},
+    "derived": {"type": "object"},
+    "coverage": {"type": "object"}
+  },
+  "additionalProperties": true
+}
