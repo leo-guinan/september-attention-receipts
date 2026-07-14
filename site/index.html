@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MetaSPN Receipts — QUAI Attention Bounties</title><meta name="description" content="Quadratic receipt funding for attention: 1 QUAI for first-seen tweets, validation matching for duplicates."><style>
+:root{--bg:#080704;--panel:#151109;--panel2:#1e170b;--gold:#e8b54b;--amber:#c87a3a;--cream:#f4ead7;--ash:#b8b2a6;--muted:#777067;--line:rgba(232,181,75,.18);--good:#83d18f;--warn:#e8b54b;--bad:#d66a4d;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--sans:Inter,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif}*{box-sizing:border-box}body{margin:0;background:radial-gradient(900px 420px at 80% -10%,rgba(232,181,75,.14),transparent),radial-gradient(700px 400px at 0% 20%,rgba(200,122,58,.13),transparent),var(--bg);color:var(--cream);font-family:var(--sans)}main{max-width:1160px;margin:0 auto;padding:54px 18px 90px}.eyebrow{font:11px var(--mono);letter-spacing:.35em;color:var(--gold);text-transform:uppercase}h1{font-size:clamp(38px,7vw,82px);line-height:.95;letter-spacing:-.06em;margin:18px 0 18px}h1 span{color:var(--gold)}.lead{max-width:880px;color:var(--ash);font-size:18px;line-height:1.55}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}.btn{border:1px solid var(--gold);background:var(--gold);color:#1b1204;text-decoration:none;border-radius:999px;padding:12px 16px;font:800 11px var(--mono);letter-spacing:.16em;text-transform:uppercase}.btn.secondary{background:transparent;color:var(--gold);border-color:var(--line)}.warning{border-left:3px solid var(--amber);background:rgba(200,122,58,.08);padding:14px 16px;border-radius:0 10px 10px 0;color:var(--ash);line-height:1.5;margin:22px 0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:28px 0}.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:16px;padding:18px}.card h2{font-size:18px;margin:0 0 8px}.card p{color:var(--ash);line-height:1.48;margin:0}.metric{font:13px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.14em}.metric b{display:block;color:var(--gold);font:42px var(--sans);letter-spacing:-.04em;margin:5px 0}.formula{font:14px/1.7 var(--mono);background:rgba(0,0,0,.28);border:1px dashed var(--line);border-radius:14px;padding:18px;overflow:auto}.steps{counter-reset:step;display:grid;gap:12px}.step{counter-increment:step;display:grid;grid-template-columns:54px 1fr;gap:14px;align-items:start}.step:before{content:counter(step);display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--gold);color:#1b1204;font-weight:900}.live{margin-top:30px}.live-row{display:grid;grid-template-columns:1fr auto;gap:12px;border-top:1px solid var(--line);padding:12px 0;color:var(--ash)}.live-row b{color:var(--cream)}.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 8px;color:var(--gold);font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase}.footer{margin-top:40px;color:var(--muted);font-size:13px}.receipt{margin-top:18px}pre{white-space:pre-wrap;max-height:360px;overflow:auto;background:#050403;border:1px solid var(--line);border-radius:12px;padding:14px;color:var(--ash);font:11px/1.5 var(--mono)}@media(max-width:860px){.grid{grid-template-columns:1fr}.step{grid-template-columns:42px 1fr}h1{font-size:44px}}
+</style></head><body><main><div class="eyebrow">MetaSPN receipts · quadratic attention funding</div><h1>Receipts pay the <span>network</span>, not the noise.</h1><p class="lead">A public bounty mechanism for the September Attention Camera. A first-seen tweet earns a queued 1 QUAI bounty. Duplicate sightings do not pay immediately; they become validation signals for future quadratic matching based on how widely the communication moved across independent participants.</p><div class="actions"><a class="btn" href="https://github.com/leo-guinan/september-attention-camera" target="_blank" rel="noopener">Install camera</a><a class="btn secondary" href="https://github.com/leo-guinan/september-attention-receipts" target="_blank" rel="noopener">Submit receipts</a><a class="btn secondary" href="https://guide.metaspn.network/api/sensor/bounties.json" target="_blank" rel="noopener">Live bounty JSON</a></div><div class="warning"><b>Custody boundary:</b> this page describes the bounty ledger. It does not run a funded hot wallet. Current payouts are queued for manual QUAI payment until a burner-wallet signer is deployed and hardened. Queued is not paid. It is a promise-shaped receipt, not money-shaped magic.</div><section class="grid"><article class="card"><div class="metric"><b>1</b>QUAI</div><h2>First-seen tweet</h2><p>If the collector has never seen a tweet ID before, the first valid receipt queues a 1 QUAI manual payout to the submitted payout address.</p></article><article class="card"><div class="metric"><b>?</b>Future</div><h2>Duplicate validation</h2><p>Duplicate receipts become validation signals. They can earn future matching after review when they prove independent attention from different operators, surfaces, or time windows.</p></article><article class="card"><div class="metric"><b>√n</b>Match</div><h2>Quadratic breadth</h2><p>Matching should reward network breadth, not spam volume. Ten independent validators matter more than one person refreshing the same tweet ten times.</p></article></section><section class="grid"><article class="card"><h2>How the mechanism works</h2><div class="steps"><div class="step"><p>A participant installs the September Attention Camera and optionally adds a QUAI payout address.</p></div><div class="step"><p>The camera captures visible public attention receipts from X/Substack/network pages.</p></div><div class="step"><p>The server normalizes tweet IDs and checks whether each tweet has been seen before.</p></div><div class="step"><p>New tweet IDs queue immediate 1 QUAI manual bounties. Duplicate tweet IDs queue validation signals.</p></div></div></article><article class="card"><h2>Funding model</h2><p>The duplicate side is quadratic because validation value should rise with independent breadth:</p><div class="formula">first_seen_payout = 1 QUAI
+
+validation_breadth(tweet) = unique operators × unique surfaces × time separation
+
+future_match(tweet) ∝ (Σ sqrt(valid_receipts_by_independent_operator))²
+
+spam_discount = duplicate_same_operator_same_surface_same_window → near 0</div></article><article class="card"><h2>What counts</h2><p>Counts should favor communications expanding through the network:</p><div class="formula">✓ different operators
+✓ different audiences/surfaces
+✓ later sightings after propagation
+✓ visible engagement deltas
+✓ receipts tied to real public pages
+
+× synthetic smoke
+× private/doxxing material
+× same operator refresh spam
+× duplicate ID pretending to be a new tweet</div></article></section><section class="card live"><h2>Live ledger snapshot</h2><p id="liveStatus" class="footer">Loading bounty summary…</p><div id="liveRows"></div><details class="receipt"><summary class="pill">raw summary receipt</summary><pre id="rawSummary">loading…</pre></details></section><p class="footer">The dull rule that saves the experiment: receipts create claims; verification creates payouts; custody creates risk. Keep those three ledgers separate.</p></main><script>
+(async function(){
+  const status=document.getElementById('liveStatus');
+  const rows=document.getElementById('liveRows');
+  const raw=document.getElementById('rawSummary');
+  try{
+    const res=await fetch('https://guide.metaspn.network/api/sensor/summary.json',{cache:'no-store'});
+    if(!res.ok) throw new Error('summary '+res.status);
+    const data=await res.json();
+    raw.textContent=JSON.stringify(data,null,2);
+    const b=data.bounties||{};
+    const d=data.duplicate_validations||{};
+    status.textContent='Generated '+(data.generated_at||'unknown')+' · payment mode '+(b.payment_mode||'manual');
+    const items=[
+      ['queued first-seen payouts', (b.queued_count||0)+' tweets'],
+      ['queued QUAI', (b.queued_quai||0)+' QUAI'],
+      ['duplicate validation signals', (d.pending_count||0)+' pending'],
+      ['events observed', (data.events||0)+' receipts']
+    ];
+    rows.innerHTML=items.map(([k,v])=>`<div class="live-row"><span>${k}</span><b>${v}</b></div>`).join('');
+  }catch(err){
+    status.textContent='Live collector unavailable: '+err.message;
+    raw.textContent=String(err);
+  }
+})();
+</script></body></html>
